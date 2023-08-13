@@ -1,4 +1,4 @@
-# ethereum-crawler-front
+# CryptoInsight setup
 
 ## Project setup
 ```
