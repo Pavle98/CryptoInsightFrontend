@@ -20,12 +20,12 @@
           <td>{{ transaction.blockNumber }}</td>
           <td>{{ transaction.timeStamp }}</td>
           <td>
-            <a :href="'http://localhost:8081/address=' + transaction.from" :title="transaction.from">
+            <a :href="'https://cryptoinsight-frontend-8ec4c0098af9.herokuapp.com/address=' + transaction.from" :title="transaction.from">
               {{ formatString(transaction.from) }}
             </a>
           </td>
           <td>
-            <a :href="'http://localhost:8081/address=' + transaction.to" :title="transaction.to">
+            <a :href="'https://cryptoinsight-frontend-8ec4c0098af9.herokuapp.com/address=' + transaction.to" :title="transaction.to">
               {{ formatString(transaction.to) }}
             </a>
           </td>
