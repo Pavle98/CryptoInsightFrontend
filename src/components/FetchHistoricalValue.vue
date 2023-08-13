@@ -42,6 +42,7 @@
 
 <script>
 import axios from 'axios';
+const BASE_URL = "https://cryptoinsight-backend-ec574df726f0.herokuapp.com";
 export default {
   data() {
     return {
@@ -59,9 +60,9 @@ export default {
       this.dateMessage = `On ${this.selectedDate} balance was:`;
       this.selectedDate = Date.parse(this.selectedDate)/1000;
       console.log(this.selectedDate)
-      const response = await axios.get(`http://localhost:8080/transaction/infura/historicalEthBalance/address=${this.address}&timestamp=${this.selectedDate}`);
+      const response = await axios.get(`${BASE_URL}/transaction/infura/historicalEthBalance/address=${this.address}&timestamp=${this.selectedDate}`);
 
-      const response2 = await axios.get(`http://localhost:8080/transaction/infura/historicalUsdtBalance/address=${this.address}&timestamp=${this.selectedDate}`);
+      const response2 = await axios.get(`${BASE_URL}/transaction/infura/historicalUsdtBalance/address=${this.address}&timestamp=${this.selectedDate}`);
       const balanceEth = response.data;
       const balanceUsdt = response2.data;
        if (balanceEth == -2) {

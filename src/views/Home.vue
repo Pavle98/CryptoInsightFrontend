@@ -33,7 +33,7 @@
 <script>
 import axios from "axios";
 import NormalTransactionTable from "@/components/NormalTransactionTable.vue";
-
+const BASE_URL = "https://cryptoinsight-backend-ec574df726f0.herokuapp.com";
 export default {
   name: 'Home',
   data() {
@@ -67,7 +67,7 @@ export default {
     },
     async fetchLastTransactions(){
       try{
-        const response = await axios.get(`http://localhost:8080/transaction/getlatesttransactions`);
+        const response = await axios.get(`${BASE_URL}/transaction/getlatesttransactions`);
         this.lastEthTransactions = response.data;
       }catch(error){
         console.log(error);
