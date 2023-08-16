@@ -66,7 +66,7 @@ export default {
 
   if(this.ethChecked === true){
     try {
-      const response = await axios.get(`${BASE_URL}/transaction/getValuesOverPeriodOfTime/ETH/address=${this.address}&startday=${this.startDate}&endday=${this.endDate}`);
+      const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL}/transaction/getValuesOverPeriodOfTime/ETH/address=${this.address}&startday=${this.startDate}&endday=${this.endDate}`);
 
       datesETH = response.data.map(item => {
         const date = new Date(item.date * 1000);
@@ -90,7 +90,7 @@ export default {
   
   if(this.usdtChecked === true){
     try {
-      const response = await axios.get(`${BASE_URL}/transaction/getValuesOverPeriodOfTime/USDT/address=${this.address}&startday=${this.startDate}&endday=${this.endDate}`);
+      const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL}/transaction/getValuesOverPeriodOfTime/USDT/address=${this.address}&startday=${this.startDate}&endday=${this.endDate}`);
 
       datesUSDT = response.data.map(item => {
         const date = new Date(item.date * 1000);

@@ -81,8 +81,8 @@ components: {
 
              this.startDate = Date.parse(this.startDate)/1000
              this.endDate =  Date.parse(this.endDate)/1000
-             this.startingBlock = await (await axios.get(`${BASE_URL}/transaction/dateToBlockNumber/timestamp=${this.startDate}`)).data;
-             this.endingBlock = await (await axios.get(`${BASE_URL}/transaction/dateToBlockNumber/timestamp=${this.endDate}`)).data;
+             this.startingBlock = await (await axios.get(`${process.env.VUE_APP_BACKEND_URL}/transaction/dateToBlockNumber/timestamp=${this.startDate}`)).data;
+             this.endingBlock = await (await axios.get(`${process.env.VUE_APP_BACKEND_URL}/transaction/dateToBlockNumber/timestamp=${this.endDate}`)).data;
              this.startingBlock = parseInt(this.startingBlock, 16);
              this.endingBlock = parseInt(this.endingBlock, 16);
              this.$emit('resetDateInputs');
@@ -104,7 +104,7 @@ components: {
        await this.dateToBlocks();
       }
       try {
-        const response = await axios.get(`${BASE_URL}/transaction/getnormaltransactions/address=${
+        const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL}/transaction/getnormaltransactions/address=${
 this.address}&startblock=${this.startingBlock}&endblock=${this.endingBlock}`);
 
         this.normalTransactions = response.data;
@@ -118,7 +118,7 @@ this.address}&startblock=${this.startingBlock}&endblock=${this.endingBlock}`);
        await this.dateToBlocks();
       }
       try {
-        const response = await axios.get(`${BASE_URL}/transaction/getinternaltransactions/address=${this.address}
+        const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL}/transaction/getinternaltransactions/address=${this.address}
 &startblock=${this.startingBlock}&endblock=${this.endingBlock}`);
   
         this.internalTransactions = response.data;
@@ -133,7 +133,7 @@ this.address}&startblock=${this.startingBlock}&endblock=${this.endingBlock}`);
       }
       try {
 
-        const response = await axios.get(`${BASE_URL}/transaction/getusdttransactions/address=${this.address}
+        const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL}/transaction/getusdttransactions/address=${this.address}
 &startblock=${this.startingBlock}&endblock=${this.endingBlock}`);
   
         this.usdtTransactions = response.data;
@@ -148,7 +148,7 @@ this.address}&startblock=${this.startingBlock}&endblock=${this.endingBlock}`);
        await this.dateToBlocks();
       }
       try {
-        const response = await axios.get(`${BASE_URL}/transaction/getalltokentransactions/address=${this.address}
+        const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL}/transaction/getalltokentransactions/address=${this.address}
 &startblock=${this.startingBlock}&endblock=${this.endingBlock}`);
   
         this.allTokenTransactions = response.data;

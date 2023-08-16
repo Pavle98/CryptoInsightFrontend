@@ -67,7 +67,7 @@ export default {
     },
     async fetchLastTransactions(){
       try{
-        const response = await axios.get(`${BASE_URL}/transaction/getlatesttransactions`);
+        const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL}/transaction/getlatesttransactions`);
         this.lastEthTransactions = response.data;
       }catch(error){
         console.log(error);

@@ -56,7 +56,7 @@ export default {
   methods: {
    async fetchEthereumData() {
       try {
-        const response = await axios.get(`${BASE_URL}/transaction/getbalance/${this.address}`);
+        const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL}/transaction/getbalance/${this.address}`);
         if(response.data.balance == -1){
             this.$router.push({
           name: "Home",
@@ -75,7 +75,7 @@ export default {
     async fetchUsdtData() {
       try {
       
-        const response = await axios.get(`${BASE_URL}/transaction/getusdtbalance/${this.address}`);
+        const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL}/transaction/getusdtbalance/${this.address}`);
 
         this.usdtBalance = response.data;
         if(this.usdtBalance == -1){

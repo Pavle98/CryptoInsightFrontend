@@ -20,10 +20,12 @@
             <a :href="'https://www.cryptoinsight360.com/address=' + transaction.from">
               {{ formatString(transaction.from) }}
             </a>
+               <button @click="copyToClipboard(transaction.from)">Copy</button>
           </td>
           <td>    <a :href="'https://www.cryptoinsight360.com/address=' + transaction.to">
                {{ formatString(transaction.to) }}
             </a> 
+                        <button @click="copyToClipboard(transaction.to)">Copy</button>
             </td>
           <td>{{ transaction.value }}</td>
         </tr>
@@ -69,7 +71,18 @@ export default {
       return Math.ceil(this.transactions.length / this.itemsPerPage);
     },
   },
-  methods: {
+  methods: { copyToClipboard(text) {
+     
+      let dummy = document.createElement('textarea');
+      document.body.appendChild(dummy);
+      dummy.value = text;
+      dummy.select();
+      document.execCommand('copy');
+      document.body.removeChild(dummy);
+      
+  
+      alert('Address copied to clipboard!');
+    },
       formatString(string) {
     return string.substring(0, 6) + "..." + string.substring(string.length - 6);
   },
