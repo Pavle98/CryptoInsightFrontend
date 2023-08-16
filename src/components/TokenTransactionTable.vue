@@ -16,12 +16,12 @@
      <td>{{ formatString(transaction.hash) }}</td>
     <td>{{ transaction.timeStamp }}</td>
     <td>
-      <a :href="'https://cryptoinsight-frontend-8ec4c0098af9.herokuapp.com/address=' + transaction.from">
+      <a :href="'https://www.cryptoinsight360.com/address=' + transaction.from">
           {{ formatString(transaction.from) }}
       </a>
     </td>
     <td>
-      <a :href="'https://cryptoinsight-frontend-8ec4c0098af9.herokuapp.com/address=' + transaction.to">
+      <a :href="'https://www.cryptoinsight360.com/address=' + transaction.to">
         {{ formatString(transaction.to) }}
       </a>
     </td>

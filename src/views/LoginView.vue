@@ -168,7 +168,7 @@ export default {
     display: none;
 }
 .form-outline {
-    background-color: rgba(233, 232, 232, 0.815); /* semi-transparent black */
+    background-color: rgba(231, 231, 231, 0.884); /* semi-transparent black */
     padding: 5px;
     border-radius: 5px;
 }
@@ -209,6 +209,21 @@ export default {
 #tab-register {
      background-color: rgba(33, 96, 160, 0.911);
 }
+
+.form-label {
+
+   font-size: 1.2em; 
+   font-weight: bold;
+}
+
+
+.form-control {
+   color: #333;  
+   font-weight: bold;
+}
+
+
+
 
 
 </style>
