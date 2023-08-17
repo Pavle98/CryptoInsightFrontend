@@ -45,15 +45,15 @@
       <div class="row mb-4">
         <div class="col-md-6 d-flex justify-content-center">
 
-          <div class="form-check mb-3 mb-md-0">
-            <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
-            <label class="form-check-label" for="loginCheck"> Remember me </label>
-          </div>
-        </div>
+        <div class="form-check mb-3 mb-md-0">
+    <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked disabled />
+    <label class="form-check-label" for="loginCheck"> Remember me </label>
+</div>
+</div>
 
-        <div class="col-md-6 d-flex justify-content-center blurred-background">
-          <a href="#!">Forgot password?</a>
-        </div>
+<div class="col-md-6 d-flex justify-content-center blurred-background">
+    <a href="#!" style="pointer-events: none; color: #aaa; cursor: not-allowed;">Forgot password?</a>
+</div>
       </div>
 
       <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
@@ -132,7 +132,7 @@ export default {
         'Content-Type': 'application/json'
       }
         });
-
+        console.log(response)
         // Handle success
         alert('Registration successful');
         // Redirect or do something else on success
@@ -158,7 +158,7 @@ export default {
         'Content-Type': 'application/json'
       }
     });
-
+console.log(response)
     // Handle success
     // You might store a token, redirect, or take other appropriate actions
     alert('Login successful');
@@ -204,7 +204,7 @@ export default {
 }
 .blurred-background {
    font-size: 130%;
-    background-color: rgba(0, 0, 0, 0.5); 
+        background-color: rgba(58, 57, 58, 0.5); 
     backdrop-filter: blur(10px); 
     padding: 5px 10px;
     border-radius: 5px; 
