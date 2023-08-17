@@ -1,6 +1,15 @@
 
 <template>
+
   <div class="container">
+     <div class="row justify-content-center mb-4"> <!-- Added a margin bottom for spacing -->
+      <div class="col-lg-7">
+        <p class="p-login-register">
+           NOTE:
+    Currently, both registered users and visitors have access to the same features on our platform. However, exclusive features for registered users are coming soon.
+        </p>
+      </div>
+    </div>
     <div class="row justify-content-center">
       <div class="col-lg-7">
 
@@ -215,7 +224,12 @@ export default {
    font-size: 1.2em; 
    font-weight: bold;
 }
-
+.p-login-register{
+backdrop-filter: blur(10px); 
+  color: #ffffff;
+    font-size: 1.2em; 
+  
+}
 
 .form-control {
    color: #333;  

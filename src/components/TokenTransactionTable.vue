@@ -19,35 +19,34 @@
             <a :href="'https://www.cryptoinsight360.com/address=' + transaction.from">
               {{ formatString(transaction.from) }}
             </a>
-               <button @click="copyToClipboard(transaction.from)">Copy</button>
+                   <CopyButton :textToCopy="transaction.from" />
           </td>
           <td>    <a :href="'https://www.cryptoinsight360.com/address=' + transaction.to">
                {{ formatString(transaction.to) }}
             </a> 
-                        <button @click="copyToClipboard(transaction.to)">Copy</button>
+                        <CopyButton :textToCopy="transaction.to" />
             </td>
     <td>{{ transaction.value }}</td>
     <td>{{ transaction.tokenSymbol }}</td>
   </tr>
 </tbody>
   </table>
-  <div class="pagination">
-      <button :disabled="currentPage === 1" @click="prevPage">Previous</button>
-      <button
-        v-for="page in totalPages"
-        :key="page"
-        @click="setCurrentPage(page)"
-        :class="{ active: currentPage === page }"
-      >
-        {{ page }}
-      </button>
-      <button :disabled="currentPage === totalPages" @click="nextPage">Next</button>
-    </div>
+     <Pagination
+  :itemsPerPage="itemsPerPage"
+   :totalItems="transactions.length"
+  :currentPage.sync="currentPage"
+/>
   </div>
 </template>
 
 <script>
+import CopyButton from './CopyButtonComponent.vue';
+import Pagination from './PaginationComponent.vue';
 export default {
+  components:{
+    Pagination,
+    CopyButton
+  },
   props: {
     transactions: {
       type: Array,
@@ -66,35 +65,12 @@ export default {
       const endIndex = startIndex + this.itemsPerPage;
       return this.transactions.slice(startIndex, endIndex);
     },
-    totalPages() {
-      return Math.ceil(this.transactions.length / this.itemsPerPage);
-    },
+   
   },
   methods: {
-    copyToClipboard(text) {
-     
-      let dummy = document.createElement('textarea');
-      document.body.appendChild(dummy);
-      dummy.value = text;
-      dummy.select();
-      document.execCommand('copy');
-      document.body.removeChild(dummy);
-      
-  
-      alert('Address copied to clipboard!');
-    },
        formatString(string) {
     return string.substring(0, 6) + "..." + string.substring(string.length - 6);
   },
-    setCurrentPage(page) {
-      this.currentPage = page;
-    },
-    prevPage() {
-      this.currentPage--;
-    },
-    nextPage() {
-      this.currentPage++;
-    },
   },
 };
 </script>
@@ -104,23 +80,6 @@ export default {
   width: 90%;
   border-collapse: collapse;
 }
-.pagination {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.pagination button {
-  padding: 0.5rem;
-  margin: 0 0.25rem;
-  cursor: pointer;
-  color: #686868;
-  outline: none;
-  transition: background-color 0.3s;
-}
-.pagination button.active {
-  background-color: #ddd;
-}
 </style>
 
