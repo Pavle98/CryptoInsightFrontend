@@ -79,8 +79,11 @@ displayedPages() {
 
 <style scoped>
 .pagination {
-  flex-wrap: wrap; 
+  display: flex;  
+  justify-content: center;  
+  flex-wrap: wrap;  
 }
+
 
 .pagination button {
   padding: 0.3rem 0.5rem; /* reduced size */
