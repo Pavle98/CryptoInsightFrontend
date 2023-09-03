@@ -33,8 +33,8 @@ export default {
   totalPages() {
     return Math.ceil(this.totalItems / this.itemsPerPage);
   },
-      displayedPages() {
-    const maxDisplayedPages = 10;
+displayedPages() {
+    const maxDisplayedPages = window.innerWidth <= 768 ? 5 : 10; // If screen width is less than or equal to 768px, show only 5 pages, else show 10.
     const middlePage = Math.ceil(maxDisplayedPages / 2);
     let startPage = this.currentPage - middlePage + 1;
     let endPage = this.currentPage + middlePage - 1;
@@ -57,6 +57,7 @@ export default {
       .fill()
       .map((_, i) => startPage + i);
   }
+
 },
   methods: {
     setCurrentPage(page) {
@@ -77,21 +78,15 @@ export default {
 </script>
 
 <style scoped>
-  .pagination {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.pagination {
+  flex-wrap: wrap; 
 }
 
 .pagination button {
-  padding: 0.5rem;
-  margin: 0 0.25rem;
-  cursor: pointer;
-  color: #686868;
-  outline: none;
-  transition: background-color 0.3s;
+  padding: 0.3rem 0.5rem; /* reduced size */
+  margin: 0.2rem; /* increased spacing */
 }
+
 .pagination button.active {
   background-color: #ddd;
 }

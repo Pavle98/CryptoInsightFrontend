@@ -1,5 +1,6 @@
 <template>
 <div>
+  <div class="responsive-table">
   <table class ="custom-table">
     <thead>
       <tr>
@@ -31,6 +32,7 @@
   </tr>
 </tbody>
   </table>
+  </div>
      <Pagination
   :itemsPerPage="itemsPerPage"
    :totalItems="transactions.length"
@@ -76,6 +78,10 @@ export default {
 </script>
 
 <style scoped>
+.responsive-table {
+  overflow-x: auto; 
+  -webkit-overflow-scrolling: touch; 
+}
 .custom-table {
   width: 90%;
   border-collapse: collapse;
