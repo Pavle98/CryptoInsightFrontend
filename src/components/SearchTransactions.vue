@@ -23,9 +23,9 @@
 
 <div class="button-container">
   <button class="btn btn-info"  @click="showNormalTransactions = true; showInternalTransactions = false, showUsdtTransactions = false,showAllTokenTransactions = false; fetchNormalTransactions()">Normal Transactions</button>
-  <button class="btn btn-info" style="margin-left: 25px;" @click="showInternalTransactions = true; showNormalTransactions = false, showUsdtTransactions = false,showAllTokenTransactions = false; fetchInternalTransactions()">Internal Transactions</button>
-  <button class="btn btn-info" style="margin-left: 25px;" @click="showUsdtTransactions = true; showNormalTransactions = false, showInternalTransactions = false,showAllTokenTransactions = false; fetchUsdtTransactions()">USDT Transactions</button>
-  <button class="btn btn-info" style="margin-left: 25px;" @click="showAllTokenTransactions = true; showNormalTransactions = false, showInternalTransactions = false, showUsdtTransactions = false; fetchAllTokenTransactions()">Token Transactions</button>
+  <button class="btn btn-info"  @click="showInternalTransactions = true; showNormalTransactions = false, showUsdtTransactions = false,showAllTokenTransactions = false; fetchInternalTransactions()">Internal Transactions</button>
+  <button class="btn btn-info"  @click="showUsdtTransactions = true; showNormalTransactions = false, showInternalTransactions = false,showAllTokenTransactions = false; fetchUsdtTransactions()">USDT Transactions</button>
+  <button class="btn btn-info"  @click="showAllTokenTransactions = true; showNormalTransactions = false, showInternalTransactions = false, showUsdtTransactions = false; fetchAllTokenTransactions()">Token Transactions</button>
 </div>
 
 
@@ -172,11 +172,25 @@ this.address}&startblock=${this.startingBlock}&endblock=${this.endingBlock}`);
 }.button-container, .table-container {
   width: 100%;
 }
+@media (max-width: 768px) {
+  .custom-button {
+    margin-left: 2px; 
+    margin-top: 5px; 
+  }
+}
 .white-label {
   color: white;
   -webkit-text-stroke: 1px rgb(0, 0, 0);  
   font-size: 120%;
   font-weight: bold;
+}
+.btn-info {
+   width: 200px;  
+   margin-left: 2px; 
+    margin-top: 5px; 
+  white-space: nowrap;  
+  overflow: hidden;     
+  text-overflow: ellipsis;  
 }
 h2 {
   position: relative;

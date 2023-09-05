@@ -107,6 +107,11 @@ export default {
 .outlined-card {
     border: 2px solid black;
 }
+.card-text {
+    overflow-wrap: break-word; 
+    word-wrap: break-word;    
+}
+
 
 h2 {
   color: rgba(255, 255, 255, 0.986);
